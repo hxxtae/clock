@@ -1,0 +1,109 @@
+.clock {
+  width: 350px;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: url("./src/assets/images/clock.png");
+  background-size: cover;
+  border: 4px solid $background;
+  border-radius: 50%;
+  box-shadow: 0 -15px 15px rgba(255,255,255,0.05),
+              inset 0 -15px 15px rgba(255,255,255,0.05),
+              0 15px 15px rgba(0,0,0,0.2),
+              inset 0 15px 15px rgba(0,0,0,0.2);
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: $primary;
+    border-radius: 50%;
+    z-index: 100;
+  }
+
+  .hour,
+  .min,
+  .sec {
+    position: absolute;
+  }
+
+  .hour {
+    
+    &,
+    .hr {
+      width: 160px;
+      height: 160px;
+    }
+
+    .hr:before {
+      content: '';
+      width: 8px;
+      height: 80px;
+      background-color: $hour;
+      z-index: 10;
+      border-radius: 6px 6px 0 0;
+    }
+  }
+    
+
+  .min {
+
+    &,
+    .mn {
+      width: 190px;
+      height: 190px;
+      
+    }
+
+    .mn:before {
+      content: '';
+      width: 4px;
+      height: 90px;
+      background-color: $primary;
+      z-index: 11;
+      border-radius: 6px 6px 0 0;
+    }
+  }
+  
+
+  .sec {
+
+    &,
+    .sc {
+      width: 230px;
+      height: 230px;
+    }
+
+    .sc:before {
+      content: '';
+      width: 2px;
+      height: 150px;
+      background-color: $primary;
+      z-index: 12;
+      border-radius: 6px 6px 0 0;
+    }
+  }
+
+  .hr,
+  .mn,
+  .sc {
+    display: flex;
+    justify-content: center;
+    position: absolute; // ★★★ 부모 absolute 에 붙는다.
+    border-radius: 50%;
+  }
+}
+
+
+
+// ※ 기억하기 - 1
+// position: static이 아닌 부모 요소에서, position: absolute 로 선언된 자식의 위치를 지정할 때
+// left, right, top, bottom 으로 위치를 조절 하지만,
+// display: flex 로 flex-start, flex-end, center, ... 등 으로 위치를 조절 할 수도 있다.
+
+// ※ 기억하기 - 2
+// display: flex 의 자식에 position: absolute 속성이 적용된다면 flex 요소 배치 정렬에서 제외된다.
+// 그리고 flex 자식요소중 다른 요소가 그 자리를 메꾸게 된다.
